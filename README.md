@@ -78,7 +78,7 @@ pip install tensorflow opencv-python pandas numpy scipy
 
 This model was trained on a depth estimation dataset as part of a university challenge. The data consists of pairs of RGB images and their corresponding ground-truth depth maps. Due to privacy and access restrictions, the dataset is not publicly available and is not included in this repository.
 
-Therefore, the script cannot be run out-of-the-box without downloading the specific competition data separately and placing it in the correct directory structure (e.g., training/images and training/depths).
+Therefore, the script cannot be run out-of-the-box without downloading the specific competition data separately and placing it in the correct directory structure.
 
 ### 3. Notebook Review
 
