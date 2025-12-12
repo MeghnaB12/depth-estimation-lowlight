@@ -2,7 +2,7 @@
 
 This project contains the complete code for training a Deep Learning model to perform Monocular Depth Estimation (predicting depth maps from single RGB images). The solution leverages Transfer Learning using a pre-trained EfficientNetB0 backbone to achieve efficient and accurate depth regression.
 
-## 🚀 Key Features & Goals
+## 🚀 Key Features
 
 The pipeline is engineered for efficiency and accuracy within a Kaggle environment, utilizing modern Convolutional Neural Network (CNN) architectures and post-processing refinement.
 
@@ -45,61 +45,49 @@ The model consists of two distinct stages:
 
 * Reshape layer to reconstruct the (128, 128, 1) spatial output.
 
-3. Training & Inference
+### 3. Training & Inference
 
-Optimizer: Adam with a learning rate of 1e-4.
+* **Optimizer**: Adam with a learning rate of 1e-4.
 
-Loss Function: Mean Squared Error (MSE).
+* **Loss Function**: Mean Squared Error (MSE).
 
-Refinement: During inference, the raw predictions are passed through a scipy.ndimage.gaussian_filter (sigma=1). This smooths out pixel-jitter and results in more visually coherent depth maps.
+* **Refinement**: During inference, the raw predictions are passed through a scipy.ndimage.gaussian_filter (sigma=1). This smooths out pixel-jitter and results in more visually coherent depth maps.
 
-Output Generation: The script generates visual depth maps (saved as images) and a structured CSV file for competition submission.
+* **Output Generation**: The script generates visual depth maps (saved as images) and a structured CSV file for competition submission.
 
-🛠️ Tech Stack
-Core: Python 3
+### 🛠️ Tech Stack
 
-Deep Learning: TensorFlow, Keras (Functional API)
+* Core: Python 3
+* TensorFlow, Keras (Functional API)
+* OpenCV (cv2)
+* EfficientNetB0
+* Data Handling: Pandas, NumPy
+* Post-Processing: Scipy (Gaussian Filter)
 
-Computer Vision: OpenCV (cv2)
+### 🏃 Running the Project
 
-Backbone: EfficientNetB0
-
-Data Handling: Pandas, NumPy
-
-Post-Processing: Scipy (Gaussian Filter)
-
-🏃 Running the Project
-1. Dependencies
+### 1. Dependencies
 
 This script is designed to run in a Kaggle Notebook or a standard Python environment with the following libraries installed:
 
-Bash
+```
 pip install tensorflow opencv-python pandas numpy scipy
-2. Dataset
+```
 
-This model requires a dataset organized into RGB images and their corresponding Depth maps. The code expects the following directory structure (typical of Kaggle depth estimation competitions):
+### 2. Dataset
 
-/kaggle/input/.../training/images
+This model was trained on a depth estimation dataset as part of a university challenge. The data consists of pairs of RGB images and their corresponding ground-truth depth maps. Due to privacy and access restrictions, the dataset is not publicly available and is not included in this repository.
 
-/kaggle/input/.../training/depths
+Therefore, the script cannot be run out-of-the-box without downloading the specific competition data separately and placing it in the correct directory structure (e.g., training/images and training/depths).
 
-/kaggle/input/.../validation/images
-
-/kaggle/input/.../validation/depths
-
-Note: The script cannot be run out-of-the-box without the specific competition data mounted at these paths.
-
-3. Notebook Review
+### 3. Notebook Review
 
 The provided code serves as an end-to-end pipeline:
 
-Model Build: Initializes EfficientNet and attaches the custom regression head.
+* **Model Build**: Initializes EfficientNet and attaches the custom regression head.
 
-Training: Fits the model using generators and saves the best weights (model.keras).
+* **Training**: Fits the model using generators and saves the best weights (model.keras).
 
-Inference: Loads the best model, predicts on test data, applies smoothing, and saves results.
+* **Inference**: Loads the best model, predicts on test data, applies smoothing, and saves results.
 
-About
-
-Efficient Monocular Depth Estimation using EfficientNetB0 transfer learning. Features a custom dense regression head and Gaussian post-processing for depth map generation.
 
