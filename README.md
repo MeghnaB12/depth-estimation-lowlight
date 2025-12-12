@@ -37,13 +37,13 @@ The model consists of two distinct stages:
 
 * **Decoder (Head)**: A series of fully connected layers designed to map features to depth pixels:
 
-* **GlobalAveragePooling2D** to flatten spatial dimensions.
+    * **GlobalAveragePooling2D** to flatten spatial dimensions.
 
-* **Dense layers (512 -> 256 neurons)** with ReLU activation for non-linearity.
+    * **Dense layers (512 -> 256 neurons)** with ReLU activation for non-linearity.
 
-* A final Dense layer with 128×128 neurons to predict every pixel's depth.
+    * A final Dense layer with 128×128 neurons to predict every pixel's depth.
 
-* Reshape layer to reconstruct the (128, 128, 1) spatial output.
+    * Reshape layer to reconstruct the (128, 128, 1) spatial output.
 
 ### 3. Training & Inference
 
