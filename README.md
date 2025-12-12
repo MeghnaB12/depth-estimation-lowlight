@@ -19,31 +19,31 @@ The pipeline is engineered for efficiency and accuracy within a Kaggle environme
 ## 📈 Methodology
 The core of this solution is mapping high-level semantic features from RGB images to continuous depth values using a frozen encoder and a trainable regression head.
 
-1. Data Preprocessing & Generation
+### 1. Data Preprocessing & Generation
 
 To handle memory constraints and ensure consistent input formats, a custom data_generator is implemented:
 
-Resizing: All input RGB images and target depth maps are resized to 128x128.
+* **Resizing**: All input RGB images and target depth maps are resized to 128x128.
 
-Normalization: Pixel values are scaled to the range [0, 1].
+* **Normalization**: Pixel values are scaled to the range [0, 1].
 
-Streaming: Data is loaded in batches on-the-fly to maintain low RAM usage during training.
+* **Streaming**: Data is loaded in batches on-the-fly to maintain low RAM usage during training.
 
-2. Model Architecture (Transfer Learning)
+### 2. Model Architecture (Transfer Learning)
 
 The model consists of two distinct stages:
 
-Encoder (Backbone): EfficientNetB0 (weights=imagenet). This section is frozen (trainable=False) to preserve learned feature representations.
+* **Encoder (Backbone)**: EfficientNetB0 (weights=imagenet). This section is frozen (trainable=False) to preserve learned feature representations.
 
-Decoder (Head): A series of fully connected layers designed to map features to depth pixels:
+* **Decoder (Head)**: A series of fully connected layers designed to map features to depth pixels:
 
-GlobalAveragePooling2D to flatten spatial dimensions.
+* **GlobalAveragePooling2D** to flatten spatial dimensions.
 
-Dense layers (512 -> 256 neurons) with ReLU activation for non-linearity.
+* **Dense layers (512 -> 256 neurons)** with ReLU activation for non-linearity.
 
-A final Dense layer with 128×128 neurons to predict every pixel's depth.
+* A final Dense layer with 128×128 neurons to predict every pixel's depth.
 
-Reshape layer to reconstruct the (128, 128, 1) spatial output.
+* Reshape layer to reconstruct the (128, 128, 1) spatial output.
 
 3. Training & Inference
 
