@@ -1,20 +1,22 @@
-Monocular Depth Estimation (EfficientNetB0 & Transfer Learning)
+## Monocular Depth Estimation (EfficientNetB0 & Transfer Learning)
+
 This project contains the complete code for training a Deep Learning model to perform Monocular Depth Estimation (predicting depth maps from single RGB images). The solution leverages Transfer Learning using a pre-trained EfficientNetB0 backbone to achieve efficient and accurate depth regression.
 
-🚀 Key Features & Goals
+## 🚀 Key Features & Goals
+
 The pipeline is engineered for efficiency and accuracy within a Kaggle environment, utilizing modern Convolutional Neural Network (CNN) architectures and post-processing refinement.
 
-Transfer Learning: Utilizes EfficientNetB0 (pretrained on ImageNet) as a powerful feature extractor, allowing the model to understand complex visual features with fewer training epochs.
+* **Transfer Learning**: Utilizes EfficientNetB0 (pretrained on ImageNet) as a powerful feature extractor, allowing the model to understand complex visual features with fewer training epochs.
 
-Regression-Based Decoding: Instead of a traditional U-Net decoder, this approach uses a dense regression head to predict depth values directly from global features.
+* **Regression-Based Decoding**: Instead of a traditional U-Net decoder, this approach uses a dense regression head to predict depth values directly from global features.
 
-Custom Metrics: Implements a custom Root Mean Squared Error (RMSE) metric to rigorously track model performance during training.
+* **Custom Metrics**: Implements a custom Root Mean Squared Error (RMSE) metric to rigorously track model performance during training.
 
-Post-Processing Refinement: Includes a Gaussian smoothing step to reduce noise and artifacts in the final depth map predictions.
+* **Post-Processing Refinement**: Includes a Gaussian smoothing step to reduce noise and artifacts in the final depth map predictions.
 
-Robust Training Loop: Features dynamic learning rate adjustment (ReduceLROnPlateau) and EarlyStopping to prevent overfitting.
+* **Robust Training Loop**: Features dynamic learning rate adjustment (ReduceLROnPlateau) and EarlyStopping to prevent overfitting.
 
-📈 Methodology
+## 📈 Methodology
 The core of this solution is mapping high-level semantic features from RGB images to continuous depth values using a frozen encoder and a trainable regression head.
 
 1. Data Preprocessing & Generation
