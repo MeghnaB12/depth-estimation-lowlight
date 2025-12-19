@@ -55,7 +55,7 @@ The model consists of two distinct stages:
 
 * **Output Generation**: The script generates visual depth maps (saved as images) and a structured CSV file for competition submission.
 
-### 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 * Core: Python 3
 * TensorFlow, Keras (Functional API)
@@ -64,7 +64,7 @@ The model consists of two distinct stages:
 * Data Handling: Pandas, NumPy
 * Post-Processing: Scipy (Gaussian Filter)
 
-### 🏃 Running the Project
+## 🏃 Running the Project
 
 ### 1. Dependencies
 
