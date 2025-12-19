@@ -1,4 +1,4 @@
-## Monocular Depth Estimation (EfficientNetB0 & Transfer Learning)
+# Monocular Depth Estimation (EfficientNetB0 & Transfer Learning)
 
 This project contains the complete code for training a Deep Learning model to perform Monocular Depth Estimation (predicting depth maps from single RGB images). The solution leverages Transfer Learning using a pre-trained EfficientNetB0 backbone to achieve efficient and accurate depth regression.
 
